@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IPlayer", "IPlayer.csproj", "{B2C710F3-0582-4423-ACA8-7BC6E492FA77}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maui.Apps.Framework", "..\Maui.Apps.Framework\Maui.Apps.Framework.csproj", "{D8C73BE1-9667-465B-AFC4-F611137BE513}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,10 @@ Global
 		{B2C710F3-0582-4423-ACA8-7BC6E492FA77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2C710F3-0582-4423-ACA8-7BC6E492FA77}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B2C710F3-0582-4423-ACA8-7BC6E492FA77}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{D8C73BE1-9667-465B-AFC4-F611137BE513}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8C73BE1-9667-465B-AFC4-F611137BE513}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8C73BE1-9667-465B-AFC4-F611137BE513}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8C73BE1-9667-465B-AFC4-F611137BE513}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
