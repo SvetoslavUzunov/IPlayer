@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks>
-		
+
 		<OutputType>Exe</OutputType>
 		<RootNamespace>IPlayer</RootNamespace>
 		<UseMaui>true</UseMaui>
@@ -31,14 +31,13 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" Color="#262626" />
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#262626" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#262626" BaseSize="128,128" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
-		<MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
@@ -48,25 +47,45 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Fonts\FiraSans-Light.ttf" />
-	  <None Remove="Resources\Fonts\FiraSans-Medium.ttf" />
+		<None Remove="Resources\Fonts\FiraSans-Light.ttf" />
+		<None Remove="Resources\Fonts\FiraSans-Medium.ttf" />
+		<None Remove="Resources\Fonts\FiraSans-Regular.ttf" />
+		<None Remove="Resources\Images\error.png" />
+		<None Remove="Resources\Images\icnback.png" />
+		<None Remove="Resources\Images\icnclose.png" />
+		<None Remove="Resources\Images\icnhamburger.png" />
+		<None Remove="Resources\Images\icnsearch.png" />
+		<None Remove="Resources\Images\icnsettings.png" />
+		<None Remove="Resources\Images\icnspeech.png" />
+		<None Remove="Resources\Images\imgarrow.png" />
+		<None Remove="Resources\Images\imgdownload.png" />
+		<None Remove="Resources\Images\imglike.png" />
+		<None Remove="Resources\Images\imgplay.png" />
+		<None Remove="Resources\Images\imgshare.png" />
+		<None Remove="Resources\Images\nointernet.png" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
-	  <PackageReference Include="MonkeyCache.FileStore" Version="2.0.0-beta" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
+		<PackageReference Include="MonkeyCache.FileStore" Version="2.0.0-beta" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Helpers\" />
-	  <Folder Include="IServices\" />
-	  <Folder Include="Models\" />
-	  <Folder Include="IViews\" />
-	  <Folder Include="Resources\Styles\" />
-	  <Folder Include="ViewControls\" />
-	  <Folder Include="Services\" />
-	  <Folder Include="ViewModels\Base\" />
-	  <Folder Include="Views\Base\" />
+		<Folder Include="Helpers\" />
+		<Folder Include="IServices\" />
+		<Folder Include="Models\" />
+		<Folder Include="IViews\" />
+		<Folder Include="Resources\Styles\" />
+		<Folder Include="ViewControls\" />
+		<Folder Include="Services\" />
+		<Folder Include="ViewModels\Base\" />
+		<Folder Include="Views\Base\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\StartPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

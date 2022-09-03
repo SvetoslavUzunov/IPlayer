@@ -23,12 +23,9 @@
 
 	<ItemGroup>
 	  <Folder Include="Converters\" />
-	  <Folder Include="Exceptions\" />
-	  <Folder Include="Extensions\" />
 	  <Folder Include="Helpers\" />
 	  <Folder Include="MVVM\" />
 	  <Folder Include="UI\" />
-	  <Folder Include="Services\" />
 	</ItemGroup>
 
 </Project>
