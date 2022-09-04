@@ -73,7 +73,6 @@
 	<ItemGroup>
 		<Folder Include="IViews\" />
 		<Folder Include="Resources\Styles\" />
-		<Folder Include="ViewControls\" />
 		<Folder Include="ViewModels\Base\" />
 		<Folder Include="Views\Base\" />
 	</ItemGroup>
@@ -83,6 +82,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="ViewControls\Common\ErrorIndicator.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="ViewControls\Common\LoadingIndicator.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\StartPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

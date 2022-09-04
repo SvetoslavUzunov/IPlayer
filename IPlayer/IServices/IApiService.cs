@@ -4,5 +4,5 @@ namespace IPlayer.IServices;
 
 public interface IApiService
 {
-	public Task<VideoSearchResult> SearchVideos(string searchQuery, string nectPageToken = "");
+	public Task<VideoSearchResult> SearchVideos(string searchQuery, string nextPageToken = "");
 }

@@ -19,8 +19,6 @@ public class YoutubeService : RestServiceBase, IApiService
 			+
 			(!string.IsNullOrEmpty(nextPageToken) ? $"&pageToken={nextPageToken}" : "");
 
-		int cacheDuration = 4;
-
-		return await GetJsonAsync<VideoSearchResult>(resourceUri, cacheDuration);
+		return await GetJsonAsync<VideoSearchResult>(resourceUri, cacheDuration: 4);
 	}
 }
