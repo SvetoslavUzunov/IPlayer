@@ -13,7 +13,7 @@ public class YoutubeService : RestServiceBase, IApiService
 		SetBaseURL(Constants.ApiServiceURL);
 	}
 
-	public async Task<VideoSearchResult> SearchVideos(string searchQuery, string nextPageToken = "")
+	public async Task<VideoSearchResult> SearchVideosAsync(string searchQuery, string nextPageToken = "")
 	{
 		var resourceUri = $"search?part=snippet&maxResults=10&type=video&key={Constants.ApiKey}&q={WebUtility.UrlEncode(searchQuery)}"
 			+

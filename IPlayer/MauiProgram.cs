@@ -1,6 +1,11 @@
 ﻿using Android.App;
 using Android.Views;
+using IPlayer.IServices;
+using IPlayer.Models;
+using IPlayer.Services;
+using IPlayer.ViewModels;
 using Microsoft.Maui.LifecycleEvents;
+using MonkeyCache.FileStore;
 
 namespace IPlayer;
 
@@ -30,6 +35,19 @@ public static class MauiProgram
 #endif
 			});
 
+		RegisterAppServices(builder.Services);
+
 		return builder.Build();
+	}
+
+	private static void RegisterAppServices(IServiceCollection services)
+	{
+		services.AddSingleton(Connectivity.Current);
+
+		Barrel.ApplicationId = Constants.ApplicationId;
+		services.AddSingleton(Barrel.Current);
+
+		services.AddSingleton<IApiService, YoutubeService>();
+		services.AddSingleton<StartPageViewModel>();
 	}
 }
