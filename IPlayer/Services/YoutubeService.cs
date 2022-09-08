@@ -21,4 +21,11 @@ public class YoutubeService : RestServiceBase, IApiService
 
 		return await GetJsonAsync<VideoSearchResult>(resourceUri, cacheDuration: 4);
 	}
+
+	public async Task<ChannelSearchResult>GetChannelsAsync(string channelIDs)
+	{
+		var responseUri = $"channels?part=snippet,statistics&maxResults=10&key={Constants.ApiKey}&id={channelIDs}";
+
+		return await GetJsonAsync<ChannelSearchResult>(responseUri, cacheDuration: 4);
+	}
 }

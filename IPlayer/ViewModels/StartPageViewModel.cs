@@ -12,7 +12,7 @@ namespace IPlayer.ViewModels;
 public partial class StartPageViewModel : AppViewModelBase
 {
 	private string nextToken = string.Empty;
-	private readonly string searchTerm = string.Empty;
+	private readonly string searchTerm = "iPhone 14";
 
 	[ObservableProperty]
 	private ObservableCollection<YoutubeVideo> youtubeVideos;
@@ -22,18 +22,18 @@ public partial class StartPageViewModel : AppViewModelBase
 		this.Title = "IPlayer";
 	}
 
-	public override void OnNavigatedTo(object parameters)
+	public override async void OnNavigatedTo(object parameters)
 	{
-		Search();
+		await SearchAsync();
 	}
 
-	private async void Search()
+	private async Task SearchAsync()
 	{
 		SetDataLoadingIndicators(true);
 
 		LoadingText = "Hold on, we are loading!";
 
-		youtubeVideos = new();
+		YoutubeVideos = new();
 
 		try
 		{
@@ -47,10 +47,10 @@ public partial class StartPageViewModel : AppViewModelBase
 			this.ErrorMessage = "Slow or no internet connection";
 			this.ErrorImage = "nointernet.png";
 		}
-		catch (Exception)
+		catch (Exception ex)
 		{
 			this.IsErrorState = true;
-			this.ErrorMessage = "Something went wrong.";
+			this.ErrorMessage = ex.Message;
 			this.ErrorImage = "error.png";
 		}
 		finally
@@ -64,6 +64,16 @@ public partial class StartPageViewModel : AppViewModelBase
 		var videoSearchResult = await ApiService.SearchVideosAsync(searchTerm, nextToken);
 
 		nextToken = videoSearchResult.NextPageToken;
+
+		var channelIDs = string.Join(",", videoSearchResult.Items
+				.Select(video => video.Snippet.ChannelId).Distinct());
+
+		var channelSearchResult = await ApiService.GetChannelsAsync(channelIDs);
+
+		videoSearchResult.Items
+			.ForEach(video => video.Snippet.ChannelImageURL = channelSearchResult.Items
+				.Where(channel => channel.Id == video.Snippet.ChannelId)
+					.First().Snippet.Thumbnails.High.Url);
 
 		YoutubeVideos.AddRange(videoSearchResult.Items);
 	}

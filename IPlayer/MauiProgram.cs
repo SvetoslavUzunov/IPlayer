@@ -1,6 +1,4 @@
-﻿using Android.App;
-using Android.Views;
-using IPlayer.IServices;
+﻿using IPlayer.IServices;
 using IPlayer.Models;
 using IPlayer.Services;
 using IPlayer.ViewModels;
@@ -26,10 +24,10 @@ public static class MauiProgram
 #if ANDROID
 				events.AddAndroid(android => android.OnCreate((activity, bundle) => MakeStatusBarTranslucent(activity)));
 
-				static void MakeStatusBarTranslucent(Activity activity)
+				static void MakeStatusBarTranslucent(Android.App.Activity activity)
 				{
-					activity.Window.SetFlags(WindowManagerFlags.LayoutNoLimits, WindowManagerFlags.LayoutNoLimits);
-					activity.Window.ClearFlags(WindowManagerFlags.TranslucentStatus);
+					activity.Window.SetFlags(Android.Views.WindowManagerFlags.LayoutNoLimits, Android.Views.WindowManagerFlags.LayoutNoLimits);
+					activity.Window.ClearFlags(Android.Views.WindowManagerFlags.TranslucentStatus);
 					activity.Window.SetStatusBarColor(Android.Graphics.Color.Transparent);
 				}
 #endif

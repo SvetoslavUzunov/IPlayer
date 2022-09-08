@@ -4,6 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:baseViews="clr-namespace:IPlayer.Views.Base"
 	xmlns:viewModels="clr-namespace:IPlayer.ViewModels"
+	xmlns:models="clr-namespace:IPlayer.Models"
+	xmlns:controls="clr-namespace:IPlayer.ViewControls"
 	x:Class="IPlayer.Views.StartPage"
 	x:TypeArguments="viewModels:StartPageViewModel"
 	x:DataType="viewModels:StartPageViewModel"
@@ -17,16 +19,40 @@
 			Style="{StaticResource IconButtonStyle}"
 			Source="icnsettings.png"
 			Command="{Binding OpenSettingPageCommand, Mode=OneWay}"/>
-
 	</baseViews:BaseView.PageIcons>
 
 	<baseViews:BaseView.PageContent>
-		<Label
-			Style="{StaticResource MediumLightText20}"
-			IsVisible="{Binding DataLoaded, Mode=OneWay}"
-			Text="Hello from UI"
-			VerticalOptions="Center"
-			HorizontalOptions="Center"/>
+
+		<CollectionView
+            x:Name="listVideos"
+            Margin="16,4,16,0"
+            ItemsSource="{Binding YoutubeVideos, Mode=OneWay}">
+
+			<CollectionView.ItemsLayout>
+				<LinearItemsLayout
+                    Orientation="Vertical"
+                    ItemSpacing="12" />
+			</CollectionView.ItemsLayout>
+
+			<CollectionView.Header>
+				<ContentView>
+					<Label Text="Search box will appear here"
+						   Style="{StaticResource RegularLightText16}"/>
+
+				</ContentView>
+			</CollectionView.Header>
+
+			<CollectionView.ItemTemplate>
+				<DataTemplate
+					x:DataType="models:YoutubeVideo">
+					<controls:VideoCell 
+						HorizontalOptions="Fill"
+						HeightRequest="{Binding ItemsHeight, Source={x:Reference RootPage}}"/>
+
+				</DataTemplate>
+			</CollectionView.ItemTemplate>
+
+		</CollectionView>
 
 	</baseViews:BaseView.PageContent>
 
