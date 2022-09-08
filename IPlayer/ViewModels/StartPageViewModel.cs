@@ -17,6 +17,9 @@ public partial class StartPageViewModel : AppViewModelBase
 	[ObservableProperty]
 	private ObservableCollection<YoutubeVideo> youtubeVideos;
 
+	[ObservableProperty]
+	private bool isLoadingMore;
+
 	public StartPageViewModel(IApiService apiService) : base(apiService)
 	{
 		this.Title = "IPlayer";
@@ -37,7 +40,7 @@ public partial class StartPageViewModel : AppViewModelBase
 
 		try
 		{
-			await GetYouTubeVideoAsync();
+			await GetYouTubeVideosAsync();
 
 			this.DataLoaded = true;
 		}
@@ -59,7 +62,7 @@ public partial class StartPageViewModel : AppViewModelBase
 		}
 	}
 
-	private async Task GetYouTubeVideoAsync()
+	private async Task GetYouTubeVideosAsync()
 	{
 		var videoSearchResult = await ApiService.SearchVideosAsync(searchTerm, nextToken);
 
@@ -82,5 +85,19 @@ public partial class StartPageViewModel : AppViewModelBase
 	private async void OpenSettingPage()
 	{
 		await PageService.DisplayAlert("Setting", "This implementations is outside the scope of this course.", "Got it.");
+	}
+
+	[RelayCommand]
+	private async Task LoadMoreVideos()
+	{
+		if (IsLoadingMore || string.IsNullOrEmpty(nextToken))
+		{
+			return;
+		}
+
+		IsLoadingMore = true;
+		await Task.Delay(2000);
+		await GetYouTubeVideosAsync();
+		IsLoadingMore = false;
 	}
 }

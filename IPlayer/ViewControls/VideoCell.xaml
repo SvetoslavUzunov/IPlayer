@@ -13,7 +13,7 @@
 		Padding="6">
 
 		<Grid
-			RowSpacing="12"
+			RowSpacing="1"
 			RowDefinitions="*,Auto">
 
 			<!-- Thumbnail -->
@@ -29,7 +29,8 @@
 				<Image
 					HorizontalOptions="Fill"
 					VerticalOptions="Fill"
-					Aspect="AspectFill">
+					Aspect="AspectFill"
+					HeightRequest="240">
 					<Image.Source>
 						<UriImageSource
 							Uri="{Binding Snippet.Thumbnails.High.Url, Mode=OneWay}"
