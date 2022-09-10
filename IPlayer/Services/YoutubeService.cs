@@ -22,10 +22,26 @@ public class YoutubeService : RestServiceBase, IApiService
 		return await GetJsonAsync<VideoSearchResult>(resourceUri, cacheDuration: 4);
 	}
 
-	public async Task<ChannelSearchResult>GetChannelsAsync(string channelIDs)
+	public async Task<ChannelSearchResult> GetChannelsAsync(string channelIDs)
 	{
-		var responseUri = $"channels?part=snippet,statistics&maxResults=10&key={Constants.ApiKey}&id={channelIDs}";
+		var resourceUri = $"channels?part=snippet,statistics&maxResults=10&key={Constants.ApiKey}&id={channelIDs}";
 
-		return await GetJsonAsync<ChannelSearchResult>(responseUri, cacheDuration: 4);
+		return await GetJsonAsync<ChannelSearchResult>(resourceUri, cacheDuration: 4);
+	}
+
+	public async Task<YoutubeVideoDetail> GetVideoDetailsAsync(string videoId)
+	{
+		var resourceUri = $"videos?part=contentDetails,id,snippet,statistics&key={Constants.ApiKey}&id={videoId}";
+
+		var result = await GetJsonAsync<VideoDetailsResult>(resourceUri, cacheDuration: 24);
+
+		return result.Items.First();
+	}
+
+	public Task<CommentsSearchResult> GetCommentsAsync(string videoId)
+	{
+		var resourceUri = $"commentThreads?part=snippet&maxResults=100&key={Constants.ApiKey}&videoId={videoId}";
+
+		return GetJsonAsync<CommentsSearchResult>(resourceUri, cacheDuration: 4);
 	}
 }

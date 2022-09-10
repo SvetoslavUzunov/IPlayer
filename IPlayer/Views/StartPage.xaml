@@ -38,8 +38,53 @@
 
 			<CollectionView.Header>
 				<ContentView>
-					<Label Text="Search box will appear here"
-						   Style="{StaticResource RegularLightText16}"/>
+					<Border
+						Padding="12,4"
+						BackgroundColor="{StaticResource DarkColor}"
+						Stroke="Transparent"
+						HorizontalOptions="Fill"
+						Margin="0,0,0,12"
+						HeightRequest="40"
+						StrokeShape="RoundRectangle 8">
+
+						<Grid
+							HorizontalOptions="Fill"
+							VerticalOptions="Center"
+							ColumnDefinitions="*, Auto"
+							ColumnSpacing="16">
+
+							<Image
+								WidthRequest="18"
+								HeightRequest="18"
+								Source="icnsearch.png"
+								Grid.Column="1"
+								VerticalOptions="Center">
+
+								<Image.GestureRecognizers>
+									<TapGestureRecognizer
+										Command="{Binding SearchVideosCommand}"
+										CommandParameter="{Binding Path=Text, Source={x:Reference TextSearchQuery}, Mode=OneWay}"/>
+								</Image.GestureRecognizers>
+
+							</Image>
+
+							<Entry
+								x:Name="TextSearchQuery"
+								Placeholder="Search..."
+								PlaceholderColor="{StaticResource LightColor}"
+								Grid.Column="0"
+								VerticalOptions="Center"
+								HorizontalOptions="Fill"
+								BackgroundColor="Transparent"
+								FontFamily="RegularFont"
+								FontSize="16"
+								TextColor="{StaticResource LightTextColor}"
+								VerticalTextAlignment="Center"
+								Completed="TextSearchQuery_Completed"/>
+
+						</Grid>
+
+					</Border>
 
 				</ContentView>
 			</CollectionView.Header>
@@ -48,6 +93,7 @@
 				<DataTemplate
 					x:DataType="models:YoutubeVideo">
 					<controls:VideoCell 
+						ParentContext="{Binding BindingContext, Source={x:Reference RootPage}}"
 						HorizontalOptions="Fill"/>
 
 				</DataTemplate>

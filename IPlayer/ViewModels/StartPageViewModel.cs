@@ -4,6 +4,7 @@ using CommunityToolkit.Mvvm.Input;
 using IPlayer.IServices;
 using IPlayer.Models;
 using IPlayer.ViewModels.Base;
+using IPlayer.Views;
 using Maui.Apps.Framework.Exceptions;
 using Maui.Apps.Framework.Extensions;
 
@@ -12,7 +13,7 @@ namespace IPlayer.ViewModels;
 public partial class StartPageViewModel : AppViewModelBase
 {
 	private string nextToken = string.Empty;
-	private readonly string searchTerm = "iPhone 14";
+	private string searchTerm = "YouTube";
 
 	[ObservableProperty]
 	private ObservableCollection<YoutubeVideo> youtubeVideos;
@@ -100,4 +101,17 @@ public partial class StartPageViewModel : AppViewModelBase
 		await GetYouTubeVideosAsync();
 		IsLoadingMore = false;
 	}
+
+	[RelayCommand]
+	private async Task SearchVideos(string searchQuery)
+	{
+		nextToken = string.Empty;
+		searchTerm = searchQuery.Trim();
+
+		await SearchAsync();
+	}
+
+	[RelayCommand]
+	private async Task NavigateToVideoDetailsPage(string videoId)
+		=> await NavigationService.PushAsync(new VideosDetailsPage(videoId));
 }

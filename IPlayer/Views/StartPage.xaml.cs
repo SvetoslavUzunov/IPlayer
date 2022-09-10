@@ -29,4 +29,7 @@ public partial class StartPage : BaseView<StartPageViewModel>
 
 		ItemsHeight = 60d + (width - listVideos.Margin.Right - listVideos.Margin.Left) / 1.8d;
 	}
+
+	private void TextSearchQuery_Completed(object sender, EventArgs e)
+		=> ViewModel.SearchVideosCommand.Execute(TextSearchQuery.Text);
 }

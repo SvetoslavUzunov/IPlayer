@@ -47,5 +47,6 @@ public static class MauiProgram
 
 		services.AddSingleton<IApiService, YoutubeService>();
 		services.AddSingleton<StartPageViewModel>();
+		services.AddTransient<VideoDetailsPageViewModel>();
 	}
 }
