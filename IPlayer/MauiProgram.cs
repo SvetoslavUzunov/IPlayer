@@ -2,6 +2,7 @@
 using IPlayer.Models;
 using IPlayer.Services;
 using IPlayer.ViewModels;
+using Microsoft.Maui.Controls.Compatibility.Hosting;
 using Microsoft.Maui.LifecycleEvents;
 using MonkeyCache.FileStore;
 
@@ -14,6 +15,7 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
+			.UseMauiCompatibility()
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("FiraSans-Light.ttf", "RegularFont");
@@ -31,6 +33,11 @@ public static class MauiProgram
 					activity.Window.SetStatusBarColor(Android.Graphics.Color.Transparent);
 				}
 #endif
+			}).ConfigureMauiHandlers(handlers =>
+			{
+				handlers.AddCompatibilityRenderer(
+					typeof(Xamarin.CommunityToolkit.UI.Views.MediaElement),
+					typeof(Xamarin.CommunityToolkit.UI.Views.MediaElementRenderer));
 			});
 
 		RegisterAppServices(builder.Services);
