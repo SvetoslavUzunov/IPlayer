@@ -8,7 +8,7 @@ public partial class ErrorIndicator : VerticalStackLayout
 	}
 
 	public static readonly BindableProperty IsErrorProperty = BindableProperty.Create(
-		"IsError",
+		nameof(IsError),
 		typeof(bool),
 		typeof(ErrorIndicator),
 		false,
@@ -27,7 +27,7 @@ public partial class ErrorIndicator : VerticalStackLayout
 
 
 	public static readonly BindableProperty ErrorTextProperty = BindableProperty.Create(
-		"ErrorText",
+		nameof(ErrorText),
 		typeof(string),
 		typeof(ErrorIndicator),
 		string.Empty,
@@ -46,7 +46,7 @@ public partial class ErrorIndicator : VerticalStackLayout
 
 
 	public static readonly BindableProperty ErrorImageProperty = BindableProperty.Create(
-		"ErrorImage",
+		nameof(ErrorImage),
 		typeof(ImageSource),
 		typeof(ErrorIndicator),
 		null,

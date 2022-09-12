@@ -116,6 +116,57 @@
 					Text="{Binding TheVideo.VideoSubtitle, Mode=OneWay}"/>
 			</VerticalStackLayout>
 
+			<!--<Image
+						Source="imgshare.png"
+						WidthRequest="16"
+						HeightRequest="16"
+				Grid.Row="2">
+
+				<Image.GestureRecognizers>
+					<TapGestureRecognizer
+								Command="{Binding ShareVideoCommand, Mode=OneWay}"/>
+				</Image.GestureRecognizers>
+			</Image>-->
+
+			<!--<VerticalStackLayout
+				Spacing="6"
+				VerticalOptions="Center"
+				Grid.Row="2">
+
+				<VerticalStackLayout.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding ShareVideoCommand, Mode=OneWay}" />
+				</VerticalStackLayout.GestureRecognizers>
+
+				<Image
+				Source="imgshare.png"
+				WidthRequest="16"
+				HeightRequest="16"/>
+
+				<Label
+				Style="{StaticResource RegularLightText14}"
+				Text="Share"/>
+			</VerticalStackLayout>-->
+
+			<VerticalStackLayout
+					Spacing="6"
+					VerticalOptions="Center"
+				Grid.Row="2">
+
+				<VerticalStackLayout.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding DownloadVideoCommand, Mode=OneWay}"/>
+				</VerticalStackLayout.GestureRecognizers>
+
+				<Image
+						Source="imgdownload.png"
+						WidthRequest="16"
+						HeightRequest="16"/>
+
+				<Label
+						Style="{StaticResource RegularLightText14}"
+						Text="Download"/>
+
+			</VerticalStackLayout>
+
 			<!-- Icons -->
 			<FlexLayout
 				x:Name="VideoIcons"
@@ -165,27 +216,35 @@
 				</VerticalStackLayout>
 
 				<!-- Share -->
-				<VerticalStackLayout
+				<!--<VerticalStackLayout
 					Spacing="6"
 					VerticalOptions="Center">
 
-					<VerticalStackLayout.GestureRecognizers>
+					-->
+				<!--<VerticalStackLayout.GestureRecognizers>
 						<TapGestureRecognizer Command="{Binding ShareVideoCommand, Mode=OneWay}" />
-					</VerticalStackLayout.GestureRecognizers>
+					</VerticalStackLayout.GestureRecognizers>-->
 
-					<Image
+				<!--<Image
 						Source="imgshare.png"
 						WidthRequest="16"
-						HeightRequest="16"/>
+						HeightRequest="16">
+
+						<Image.GestureRecognizers>
+							<TapGestureRecognizer
+								Command="{Binding ShareVideoCommand, Mode=OneWay}"/>
+						</Image.GestureRecognizers>
+					</Image>-->
+				<!--
 
 					<Label
 						Style="{StaticResource RegularLightText14}"
 						Text="Share"/>
 
-				</VerticalStackLayout>
+				</VerticalStackLayout>-->
 
 				<!-- Download -->
-				<VerticalStackLayout
+				<!--<VerticalStackLayout
 					Spacing="6"
 					VerticalOptions="Center">
 
@@ -202,7 +261,7 @@
 						Style="{StaticResource RegularLightText14}"
 						Text="Download"/>
 
-				</VerticalStackLayout>
+				</VerticalStackLayout>-->
 
 			</FlexLayout>
 
@@ -370,6 +429,31 @@
 				BorderWidth="0.5"
 				Background="{StaticResource DarkColor}"
 				Clicked="BtnComments_Clicked"/>
+
+			<!-- Progress Bar -->
+			<ContentView
+				IsVisible="{Binding IsDownloading, Mode=OneWay}"
+				Grid.Row="7"
+				VerticalOptions="Fill"
+				HorizontalOptions="Fill"
+				BackgroundColor="{StaticResource PageBackgroundColor}"
+				Margin="0,0,0,16">
+
+				<VerticalStackLayout
+					Spacing="8"
+					VerticalOptions="Center"
+					HorizontalOptions="Fill">
+
+					<ProgressBar
+						Progress="{Binding ProgressValue, Mode=OneWay}"
+						HorizontalOptions="Fill"/>
+
+					<Label
+						Text="{Binding ProgressValue, Mode=OneWay, StringFormat='{0:P1}'}"
+						HorizontalOptions="Center"
+						Style="{StaticResource RegularLightText14}"/>
+				</VerticalStackLayout>
+			</ContentView>
 
 			<!-- Comments Sheet -->
 			<botshtcontrols:BottomSheet

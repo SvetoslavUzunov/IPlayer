@@ -5,6 +5,7 @@ using IPlayer.Models;
 using IPlayer.ViewModels.Base;
 using IPlayer.Views;
 using Maui.Apps.Framework.Exceptions;
+using Maui.Apps.Framework.Extensions;
 using YoutubeExplode;
 using YoutubeExplode.Videos.Streams;
 
@@ -29,11 +30,21 @@ public partial class VideoDetailsPageViewModel : AppViewModelBase
 	[ObservableProperty]
 	private string videoSource;
 
+	[ObservableProperty]
+	private double progressValue;
+
+	[ObservableProperty]
+	private bool isDownloading = false;
+
 	private IEnumerable<MuxedStreamInfo> streamInfo;
 
-	public VideoDetailsPageViewModel(IApiService apiService) : base(apiService)
+	private IDownloadFileService downloadFileService;
+
+	public VideoDetailsPageViewModel(IYoutubeService apiService, IDownloadFileService downloadFileService) : base(apiService)
 	{
-		this.Title = "IPlayer";
+		this.Title = "VideoPlay";
+
+		this.downloadFileService = downloadFileService;
 	}
 
 	public override async void OnNavigatedTo(object parameters)
@@ -105,9 +116,36 @@ public partial class VideoDetailsPageViewModel : AppViewModelBase
 	}
 
 	[RelayCommand]
-	private void DownloadVideo()
+	private async Task DownloadVideo()
 	{
+		if (IsDownloading)
+			return;
 
+		var progressIndicator = new Progress<double>((value) => ProgressValue = value);
+		var cancellationTokenSource = new CancellationTokenSource();
+
+		try
+		{
+			IsDownloading = true;
+
+			var urlToDownload = streamInfo.
+				OrderByDescending(video => video.VideoResolution.Area).First().Url;
+
+			var downloadedFilePath = await downloadFileService.
+				DownloadFileAsync(urlToDownload, TheVideo.Snippet.Title.
+					CleanCacheKey() + ".mp4", progressIndicator, cancellationTokenSource.Token);
+
+			await Share.RequestAsync(new ShareFileRequest
+			{
+				Title = TheVideo.Snippet.Title,
+				File = new ShareFile(downloadedFilePath)
+			});
+		}
+		catch { }
+		finally
+		{
+			IsDownloading = false;
+		}
 	}
 
 	[RelayCommand]

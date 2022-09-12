@@ -6,14 +6,14 @@ namespace IPlayer.ViewModels.Base;
 
 public partial class AppViewModelBase : BaseViewModel
 {
-	public AppViewModelBase(IApiService apiService) : base()
+	public AppViewModelBase(IYoutubeService apiService) : base()
 		=> this.ApiService = apiService;
 
 	public INavigation NavigationService { get; set; }
 
 	public Page PageService { get; set; }
 
-	protected IApiService ApiService { get; set; }
+	protected IYoutubeService ApiService { get; set; }
 
 	[RelayCommand]
 	private async Task NavigationBack()

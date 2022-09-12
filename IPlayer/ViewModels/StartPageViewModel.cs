@@ -13,7 +13,7 @@ namespace IPlayer.ViewModels;
 public partial class StartPageViewModel : AppViewModelBase
 {
 	private string nextToken = string.Empty;
-	private string searchTerm = "YouTube";
+	private string searchTerm = "Cats";
 
 	[ObservableProperty]
 	private ObservableCollection<YoutubeVideo> youtubeVideos;
@@ -21,9 +21,9 @@ public partial class StartPageViewModel : AppViewModelBase
 	[ObservableProperty]
 	private bool isLoadingMore;
 
-	public StartPageViewModel(IApiService apiService) : base(apiService)
+	public StartPageViewModel(IYoutubeService apiService) : base(apiService)
 	{
-		this.Title = "IPlayer";
+		this.Title = "VideoPlay";
 	}
 
 	public override async void OnNavigatedTo(object parameters)
@@ -97,7 +97,7 @@ public partial class StartPageViewModel : AppViewModelBase
 		}
 
 		IsLoadingMore = true;
-		await Task.Delay(2000);
+		await Task.Delay(1000);
 		await GetYouTubeVideosAsync();
 		IsLoadingMore = false;
 	}

@@ -11,7 +11,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>IPlayer</ApplicationTitle>
+		<ApplicationTitle>VideoPlay</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.iplayer</ApplicationId>

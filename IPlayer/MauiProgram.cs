@@ -52,7 +52,8 @@ public static class MauiProgram
 		Barrel.ApplicationId = Constants.ApplicationId;
 		services.AddSingleton(Barrel.Current);
 
-		services.AddSingleton<IApiService, YoutubeService>();
+		services.AddSingleton<IYoutubeService, YoutubeService>();
+		services.AddSingleton<IDownloadFileService, DownloadFileService>();
 		services.AddSingleton<StartPageViewModel>();
 		services.AddTransient<VideoDetailsPageViewModel>();
 	}

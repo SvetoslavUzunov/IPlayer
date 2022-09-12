@@ -6,7 +6,7 @@ using MonkeyCache;
 
 namespace IPlayer.Services;
 
-public class YoutubeService : RestServiceBase, IApiService
+public class YoutubeService : RestServiceBase, IYoutubeService
 {
 	public YoutubeService(IBarrel barrel, IConnectivity connectivity) : base(barrel, connectivity)
 	{

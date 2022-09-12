@@ -2,7 +2,7 @@
 
 namespace IPlayer.IServices;
 
-public interface IApiService
+public interface IYoutubeService
 {
 	public Task<VideoSearchResult> SearchVideosAsync(string searchQuery, string nextPageToken = "");
 

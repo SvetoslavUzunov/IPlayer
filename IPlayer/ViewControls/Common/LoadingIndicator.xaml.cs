@@ -8,7 +8,7 @@ public partial class LoadingIndicator : VerticalStackLayout
 	}
 
 	public static readonly BindableProperty IsBusyProperty = BindableProperty.Create(
-	   "IsBusy",
+	   nameof(IsBusy),
 	   typeof(bool),
 	   typeof(LoadingIndicator),
 	   false,
@@ -31,7 +31,7 @@ public partial class LoadingIndicator : VerticalStackLayout
 	}
 
 	public static readonly BindableProperty LoadingTextProperty = BindableProperty.Create(
-		"LoadingText",
+		nameof(LoadingText),
 		typeof(string),
 		typeof(LoadingIndicator),
 		string.Empty,
