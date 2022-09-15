@@ -7,13 +7,14 @@ using IPlayer.ViewModels.Base;
 using IPlayer.Views;
 using Maui.Apps.Framework.Exceptions;
 using Maui.Apps.Framework.Extensions;
+using static IPlayer.Models.Constants;
 
 namespace IPlayer.ViewModels;
 
 public partial class StartPageViewModel : AppViewModelBase
 {
 	private string nextToken = string.Empty;
-	private string searchTerm = "Cats";
+	private string searchTerm = DefaultSearchTerm;
 
 	[ObservableProperty]
 	private ObservableCollection<YoutubeVideo> youtubeVideos;
@@ -22,7 +23,7 @@ public partial class StartPageViewModel : AppViewModelBase
 	private bool isLoadingMore;
 
 	public StartPageViewModel(IYoutubeService apiService) : base(apiService)
-		=> this.Title = "VideoPlay";
+		=> this.Title = ApplicationName;
 
 
 	public override async void OnNavigatedTo(object parameters)
@@ -32,7 +33,7 @@ public partial class StartPageViewModel : AppViewModelBase
 	{
 		SetDataLoadingIndicators(true);
 
-		LoadingText = "Hold on, we are loading!";
+		LoadingText = DefaultLoadingText;
 
 		YoutubeVideos = new();
 
@@ -45,7 +46,7 @@ public partial class StartPageViewModel : AppViewModelBase
 		catch (InternetConnectionException)
 		{
 			this.IsErrorState = true;
-			this.ErrorMessage = "Slow or no internet connection";
+			this.ErrorMessage = NoInternetConnectionMessage;
 			this.ErrorImage = "nointernet.png";
 		}
 		catch (Exception ex)

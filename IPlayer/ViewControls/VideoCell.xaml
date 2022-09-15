@@ -83,6 +83,7 @@
 								Uri="{Binding Snippet.ChannelImageURL, Mode=OneWay}"
 								CacheValidity="1:00:00.0"/>
 						</Image.Source>
+					
 					</Image>
 				</Border>
 

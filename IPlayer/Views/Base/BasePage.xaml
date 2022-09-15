@@ -50,7 +50,7 @@
                 HorizontalOptions="Start"
                 Style="{StaticResource IconButtonStyle}"
                 Grid.Column="0"
-                Command="{Binding NavigateBackCommand, Mode=OneWay}" />
+                Command="{Binding NavigateBackCommand, Mode=OneWay}"/>
 
 			<ImageButton
                 x:Name="CloseButton"
@@ -70,7 +70,7 @@
                 HorizontalOptions="Fill"
                 HorizontalTextAlignment="Center"
                 VerticalTextAlignment="Center"
-                Margin="6,0,6,-1"
+                Margin="6,6,6,-1"
                 Style="{StaticResource PageHeaderTextStyle}" />
 
 			<!-- Icons for Right Side -->

@@ -24,7 +24,7 @@
 	<baseViews:BaseView.PageContent>
 
 		<Grid
-			RowDefinitions="160, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, *, Auto, 56"
+			RowDefinitions="160, Auto, Auto, Auto, Auto, Auto, *, 56"
 			RowSpacing="12"
 			Margin="16,0"
 			IsVisible="{Binding DataLoaded, Mode=OneWay}"
@@ -208,7 +208,7 @@
 			<Grid
 				x:Name="ChannelDetails"
 				Opacity="0"
-				Grid.Row="6"
+				Grid.Row="3"
 				ColumnSpacing="12"
 				ColumnDefinitions="Auto,*,Auto"
 				RowDefinitions="Auto,Auto">
@@ -280,7 +280,7 @@
 			<!-- Similar Videos -->
 			<CollectionView
 				x:Name="SimilarVideos"
-				Grid.Row="8"
+				Grid.Row="5"
 				Opacity="0"
 				IsVisible="{Binding SimilarVideos, Mode=OneWay, Converter={StaticResource cvtVisibleOnItemCount}}"
 				HeightRequest="140"
@@ -306,7 +306,7 @@
 			<!-- Tags -->
 			<CollectionView
 				x:Name="TagsView"
-				Grid.Row="7"
+				Grid.Row="4"
 				Opacity="0"
 				IsVisible="{Binding TheVideo.Snippet.Tags, Mode=OneWay, Converter={StaticResource cvtVisibleOnItemCount}}"
 				HeightRequest="28"
@@ -340,7 +340,7 @@
 
 			<!-- Description -->
 			<ScrollView
-				Grid.Row="9"
+				Grid.Row="6"
 				x:Name="DescriptionView"
 				Opacity="0">
 				<Label
@@ -353,7 +353,7 @@
 			<!-- Comments Button -->
 			<Button
 				x:Name="CommentsButton"
-				Grid.Row="10"
+				Grid.Row="7"
 				Opacity="0"
 				Padding="0"
 				Margin="0,0,0,16"
@@ -402,7 +402,7 @@
 				Grid.RowSpan="12"
 				HeaderText="{Binding TheVideo.CommentsCount, Mode=OneWay, StringFormat='COMMENTS ({0})'}"
 				HeaderStyle="{StaticResource PageHeaderTextStyle}"
-				SheetHeight="660"
+				SheetHeight="600"
 				Theme="Dark">
 				<botshtcontrols:BottomSheet.BottomSheetContent>
 

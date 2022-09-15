@@ -118,6 +118,6 @@ public partial class BottomSheet : ContentView
 		this.InputTransparent = true;
 	}
 
-	async void CloseBottomSheetButton_Tapped(object sender, EventArgs e) =>
-		await CloseBottomSheet();
+	async void CloseBottomSheetButton_Tapped(object sender, EventArgs e)
+		=> await CloseBottomSheet();
 }

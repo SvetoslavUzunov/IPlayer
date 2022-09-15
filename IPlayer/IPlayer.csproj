@@ -31,7 +31,7 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#262626" />
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appicon.svg" Color="#262626" />
 
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#262626" BaseSize="128,128" />
@@ -73,7 +73,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="IViews\" />
 		<Folder Include="Resources\Styles\" />
 	</ItemGroup>
 

@@ -8,6 +8,7 @@ using Maui.Apps.Framework.Exceptions;
 using Maui.Apps.Framework.Extensions;
 using YoutubeExplode;
 using YoutubeExplode.Videos.Streams;
+using static IPlayer.Models.Constants;
 
 namespace IPlayer.ViewModels;
 
@@ -38,11 +39,11 @@ public partial class VideoDetailsPageViewModel : AppViewModelBase
 
 	private IEnumerable<MuxedStreamInfo> streamInfo;
 
-	private IDownloadFileService downloadFileService;
+	private readonly IDownloadFileService downloadFileService;
 
 	public VideoDetailsPageViewModel(IYoutubeService apiService, IDownloadFileService downloadFileService) : base(apiService)
 	{
-		this.Title = "VideoPlay";
+		this.Title = ApplicationName;
 
 		this.downloadFileService = downloadFileService;
 	}
@@ -53,7 +54,7 @@ public partial class VideoDetailsPageViewModel : AppViewModelBase
 
 		SetDataLoadingIndicators(true);
 
-		this.LoadingText = "Hold on...";
+		this.LoadingText = DefaultLoadingText;
 
 		try
 		{
@@ -84,7 +85,7 @@ public partial class VideoDetailsPageViewModel : AppViewModelBase
 		catch (InternetConnectionException)
 		{
 			this.IsErrorState = true;
-			this.ErrorMessage = "Slow or no internet connection.";
+			this.ErrorMessage = NoInternetConnectionMessage;
 			this.ErrorImage = "nointernet.png";
 		}
 		catch (Exception ex)
@@ -129,7 +130,9 @@ public partial class VideoDetailsPageViewModel : AppViewModelBase
 			IsDownloading = true;
 
 			var urlToDownload = streamInfo.
-				OrderByDescending(video => video.VideoResolution.Area).First().Url;
+				OrderByDescending(video => video.VideoResolution.Area)
+				.First()
+				.Url;
 
 			var downloadedFilePath = await downloadFileService.
 				DownloadFileAsync(urlToDownload, TheVideo.Snippet.Title.
