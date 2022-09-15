@@ -1,3 +1,4 @@
+using CommunityToolkit.Mvvm.Input;
 using Maui.Apps.Framework.UI;
 
 namespace IPlayer.Views.Base;
@@ -74,22 +75,18 @@ public partial class BasePage : ContentPage
 		switch (pageMode)
 		{
 			case PageMode.Menu:
-				HamburgerButton.IsVisible = true;
 				NavigateBackButton.IsVisible = false;
 				CloseButton.IsVisible = false;
 				break;
 			case PageMode.Navigate:
-				HamburgerButton.IsVisible = false;
 				NavigateBackButton.IsVisible = true;
 				CloseButton.IsVisible = false;
 				break;
 			case PageMode.Modal:
-				HamburgerButton.IsVisible = false;
 				NavigateBackButton.IsVisible = false;
 				CloseButton.IsVisible = true;
 				break;
 			default:
-				HamburgerButton.IsVisible = false;
 				NavigateBackButton.IsVisible = false;
 				CloseButton.IsVisible = false;
 				break;

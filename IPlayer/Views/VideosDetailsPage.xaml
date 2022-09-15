@@ -116,154 +116,93 @@
 					Text="{Binding TheVideo.VideoSubtitle, Mode=OneWay}"/>
 			</VerticalStackLayout>
 
-			<!--<Image
-						Source="imgshare.png"
-						WidthRequest="16"
-						HeightRequest="16"
-				Grid.Row="2">
-
-				<Image.GestureRecognizers>
-					<TapGestureRecognizer
-								Command="{Binding ShareVideoCommand, Mode=OneWay}"/>
-				</Image.GestureRecognizers>
-			</Image>-->
-
-			<!--<VerticalStackLayout
-				Spacing="6"
-				VerticalOptions="Center"
-				Grid.Row="2">
-
-				<VerticalStackLayout.GestureRecognizers>
-					<TapGestureRecognizer Command="{Binding ShareVideoCommand, Mode=OneWay}" />
-				</VerticalStackLayout.GestureRecognizers>
-
-				<Image
-				Source="imgshare.png"
-				WidthRequest="16"
-				HeightRequest="16"/>
-
-				<Label
-				Style="{StaticResource RegularLightText14}"
-				Text="Share"/>
-			</VerticalStackLayout>-->
-
-			<VerticalStackLayout
-					Spacing="6"
-					VerticalOptions="Center"
-				Grid.Row="2">
-
-				<VerticalStackLayout.GestureRecognizers>
-					<TapGestureRecognizer Command="{Binding DownloadVideoCommand, Mode=OneWay}"/>
-				</VerticalStackLayout.GestureRecognizers>
-
-				<Image
-						Source="imgdownload.png"
-						WidthRequest="16"
-						HeightRequest="16"/>
-
-				<Label
-						Style="{StaticResource RegularLightText14}"
-						Text="Download"/>
-
-			</VerticalStackLayout>
-
 			<!-- Icons -->
-			<FlexLayout
+			<HorizontalStackLayout
 				x:Name="VideoIcons"
 				Grid.Row="2"
 				HorizontalOptions="Fill"
 				Opacity="0"
-				Direction="Row"
-				JustifyContent="SpaceBetween"
-				AlignContent="Stretch"
-				Margin="0,8">
+				Margin="0"
+				Spacing="20">
 
 				<!-- Likes -->
-				<VerticalStackLayout
+				<HorizontalStackLayout
 					Spacing="6"
 					VerticalOptions="Center">
 
 					<Image
-						Source="imglike.png"
-						WidthRequest="16"
-						HeightRequest="16"/>
+					Source="imglike.png"
+					WidthRequest="16"
+					HeightRequest="16"/>
 
 					<Label
-						Style="{StaticResource RegularLightText14}"
-						Text="{Binding TheVideo.LikesCount, Mode=OneWay}"/>
+					Style="{StaticResource RegularLightText14}"
+					Text="{Binding TheVideo.LikesCount, Mode=OneWay}"/>
 
-				</VerticalStackLayout>
+				</HorizontalStackLayout>
 
 				<!-- Dislike -->
-				<VerticalStackLayout
+				<HorizontalStackLayout
 					Spacing="6"
 					VerticalOptions="Center">
 
-					<VerticalStackLayout.GestureRecognizers>
+					<HorizontalStackLayout.GestureRecognizers>
 						<TapGestureRecognizer Command="{Binding UnlikeVideoCommand, Mode=OneWay}"/>
-					</VerticalStackLayout.GestureRecognizers>
+					</HorizontalStackLayout.GestureRecognizers>
 
 					<Image
-						Source="imglike.png"
-						Rotation="180"
-						WidthRequest="16"
-						HeightRequest="16"/>
+					Source="imglike.png"
+					Rotation="180"
+					WidthRequest="16"
+					HeightRequest="16"/>
 
 					<Label
-						Style="{StaticResource RegularLightText14}"
-						Text="Unlike"/>
+					Style="{StaticResource RegularLightText14}"
+					Text="Unlike"/>
 
-				</VerticalStackLayout>
+				</HorizontalStackLayout>
 
 				<!-- Share -->
-				<!--<VerticalStackLayout
+				<HorizontalStackLayout
 					Spacing="6"
 					VerticalOptions="Center">
 
-					-->
-				<!--<VerticalStackLayout.GestureRecognizers>
+					<HorizontalStackLayout.GestureRecognizers>
 						<TapGestureRecognizer Command="{Binding ShareVideoCommand, Mode=OneWay}" />
-					</VerticalStackLayout.GestureRecognizers>-->
-
-				<!--<Image
-						Source="imgshare.png"
-						WidthRequest="16"
-						HeightRequest="16">
-
-						<Image.GestureRecognizers>
-							<TapGestureRecognizer
-								Command="{Binding ShareVideoCommand, Mode=OneWay}"/>
-						</Image.GestureRecognizers>
-					</Image>-->
-				<!--
-
-					<Label
-						Style="{StaticResource RegularLightText14}"
-						Text="Share"/>
-
-				</VerticalStackLayout>-->
-
-				<!-- Download -->
-				<!--<VerticalStackLayout
-					Spacing="6"
-					VerticalOptions="Center">
-
-					<VerticalStackLayout.GestureRecognizers>
-						<TapGestureRecognizer Command="{Binding DownloadVideoCommand, Mode=OneWay}"/>
-					</VerticalStackLayout.GestureRecognizers>
+					</HorizontalStackLayout.GestureRecognizers>
 
 					<Image
-						Source="imgdownload.png"
-						WidthRequest="16"
-						HeightRequest="16"/>
+					Source="imgshare.png"
+					WidthRequest="16"
+					HeightRequest="16"/>
 
 					<Label
-						Style="{StaticResource RegularLightText14}"
-						Text="Download"/>
+					Style="{StaticResource RegularLightText14}"
+					Text="Share"/>
 
-				</VerticalStackLayout>-->
+				</HorizontalStackLayout>
 
-			</FlexLayout>
+				<!-- Download -->
+				<HorizontalStackLayout
+					Spacing="6"
+					VerticalOptions="Center">
+
+					<HorizontalStackLayout.GestureRecognizers>
+						<TapGestureRecognizer Command="{Binding DownloadVideoCommand, Mode=OneWay}"/>
+					</HorizontalStackLayout.GestureRecognizers>
+
+					<Image
+					Source="imgdownload.png"
+					WidthRequest="16"
+					HeightRequest="16"/>
+
+					<Label
+					Style="{StaticResource RegularLightText14}"
+					Text="Download"/>
+
+				</HorizontalStackLayout>
+
+			</HorizontalStackLayout>
 
 			<!-- Channel Details -->
 			<Grid

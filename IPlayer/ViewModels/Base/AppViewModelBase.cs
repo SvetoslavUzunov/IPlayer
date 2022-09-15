@@ -16,7 +16,7 @@ public partial class AppViewModelBase : BaseViewModel
 	protected IYoutubeService ApiService { get; set; }
 
 	[RelayCommand]
-	private async Task NavigationBack()
+	private async Task NavigateBack()
 		=> await NavigationService.PopAsync();
 
 	[RelayCommand]

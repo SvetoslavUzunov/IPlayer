@@ -3,10 +3,13 @@
 	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:basecontrols="clr-namespace:IPlayer.ViewControls.Common"
+	xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    ios:Page.PrefersHomeIndicatorAutoHidden="true"
     x:Class="IPlayer.Views.Base.BasePage"
     BackgroundColor="{StaticResource PageBackgroundColor}">
 
-	<Grid IgnoreSafeArea="True">
+	<Grid 
+		IgnoreSafeArea="True">
 
 		<Grid.RowDefinitions>
 			<RowDefinition Height="{OnPlatform Android=16, iOS=36, Default=0}" />
@@ -29,7 +32,7 @@
 		<basecontrols:LoadingIndicator
 			Grid.Row="2"
 			IsBusy="{Binding IsBusy, Mode=OneWay}"
-			LoadingText="{Binding loadingText, Mode=OneWay}"
+			LoadingText="{Binding LoadingText, Mode=OneWay}"
 			HorizontalOptions="Center"
 			VerticalOptions="Center" />
 
@@ -40,15 +43,6 @@
             IgnoreSafeArea="True">
 
 			<!-- Icons for Left Side -->
-			<ImageButton
-                x:Name="HamburgerButton"
-                Source="icnhamburger.png"
-                VerticalOptions="Center"
-                HorizontalOptions="Start"
-                Style="{StaticResource IconButtonStyle}"
-                Grid.Column="0" />
-			<!--Clicked="HamburgerButton_Clicked"-->
-
 			<ImageButton
                 x:Name="NavigateBackButton"
                 Source="icnback.png"

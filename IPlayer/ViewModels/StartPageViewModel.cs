@@ -22,14 +22,11 @@ public partial class StartPageViewModel : AppViewModelBase
 	private bool isLoadingMore;
 
 	public StartPageViewModel(IYoutubeService apiService) : base(apiService)
-	{
-		this.Title = "VideoPlay";
-	}
+		=> this.Title = "VideoPlay";
+
 
 	public override async void OnNavigatedTo(object parameters)
-	{
-		await SearchAsync();
-	}
+		=> await SearchAsync();
 
 	private async Task SearchAsync()
 	{
@@ -80,12 +77,6 @@ public partial class StartPageViewModel : AppViewModelBase
 					.First().Snippet.Thumbnails.High.Url);
 
 		YoutubeVideos.AddRange(videoSearchResult.Items);
-	}
-
-	[RelayCommand]
-	private async void OpenSettingPage()
-	{
-		await PageService.DisplayAlert("Setting", "This implementations is outside the scope of this course.", "Got it.");
 	}
 
 	[RelayCommand]

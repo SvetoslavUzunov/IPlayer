@@ -10,16 +10,8 @@
 	x:TypeArguments="viewModels:StartPageViewModel"
 	x:DataType="viewModels:StartPageViewModel"
     PageTitle="{Binding Title, Mode=OneWay}"
-	PageMode="Menu"
 	ContentDisplayMode="NavigationBar"
 	x:Name="RootPage">
-
-	<baseViews:BaseView.PageIcons>
-		<ImageButton
-			Style="{StaticResource IconButtonStyle}"
-			Source="icnsettings.png"
-			Command="{Binding OpenSettingPageCommand, Mode=OneWay}"/>
-	</baseViews:BaseView.PageIcons>
 
 	<baseViews:BaseView.PageContent>
 
