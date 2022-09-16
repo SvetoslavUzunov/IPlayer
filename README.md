@@ -17,7 +17,6 @@ Create API Key: https://console.cloud.google.com/
 - Share a video
 - Download the video
 
-
 </br>
 
 ## Video demonstration:</br>
