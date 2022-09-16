@@ -1,4 +1,4 @@
-# IPlayer
+# VideoPlayer
 .NET MAUI Project
 
 IMPORTANT!</br>
