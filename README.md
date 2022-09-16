@@ -1,8 +1,8 @@
 # IPlayer
 .NET MAUI Project
 
-Important!
-Provie your own API Key in Models/Constants.cs file before running.
+Important!</br>
+Provide your own API Key in Models/Constants.cs file before running.
 Create API Key: https://console.cloud.google.com/
 
 ![Screenshot_20220915-174502](https://user-images.githubusercontent.com/53313278/190435675-367aecf3-a85b-4cb6-8c54-50f259d4ef5a.jpg)
