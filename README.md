@@ -10,10 +10,14 @@ Create API Key: https://console.cloud.google.com/
 ![Screenshot_20220915-174519](https://user-images.githubusercontent.com/53313278/190435722-46a97fbe-925b-4221-9a6c-612da85f1749.jpg)
 </br></br>
 
-Features include:</br>
-##YouTube API Connection
+## Features include:</br>
+- YouTube API Connection
+- Video search
+- Play the video
+- Share a video
+- Download the video
 
 
 </br>
-Video demonstration:</br>
+## Video demonstration:</br>
 https://user-images.githubusercontent.com/53313278/190634887-f99f8d32-4390-4e39-bca8-5fa5e3f99708.mp4
