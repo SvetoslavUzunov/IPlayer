@@ -1,4 +1,4 @@
-# VideoPlayer
+# VideoPlay
 .NET MAUI Project
 
 IMPORTANT!</br>
