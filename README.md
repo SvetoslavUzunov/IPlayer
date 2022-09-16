@@ -5,9 +5,9 @@ IMPORTANT!</br>
 Provide your own API Key in Models/Constants.cs file before running.</br>
 Create API Key: https://console.cloud.google.com/
 
-![Screenshot_1663326935](https://user-images.githubusercontent.com/53313278/190636366-7330d39c-db8f-4a98-9b6a-d2e126366caf.png)
+![Screenshot_20220915-174502](https://user-images.githubusercontent.com/53313278/190435675-367aecf3-a85b-4cb6-8c54-50f259d4ef5a.jpg)
 </br></br>
-![Screenshot_1663326951](https://user-images.githubusercontent.com/53313278/190636379-ee3a77ba-6cc1-4d6e-ac2b-c18fd1c03059.png)
+![Screenshot_20220915-174519](https://user-images.githubusercontent.com/53313278/190435722-46a97fbe-925b-4221-9a6c-612da85f1749.jpg)
 
 </br>
 Video demonstration:</br>
