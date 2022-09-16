@@ -6,7 +6,7 @@ public static class Constants
 	public const string EmailAddress = "videoPlay@gmail.com";
 	public const string ApplicationId = "SU.IPlayer.App";
 	public const string ApiServiceURL = @"https://youtube.googleapis.com/youtube/v3/";
-	public const string ApiKey = @"AIzaSyD10hggq6-GjzEz-jNt-myCRFXtzKOMDbs";
+	public const string ApiKey = @"YOUR OWN API KEY";
 
 	public const string DefaultSearchTerm = "Morandi";
 	public const string DefaultLoadingText = "Hold on, we are loading!";
