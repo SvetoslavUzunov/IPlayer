@@ -100,14 +100,14 @@ public partial class VideoDetailsPageViewModel : AppViewModelBase
 		}
 	}
 
-	[RelayCommand]
-	private async Task UnlikeVideo()
-		=> await PageService.DisplayAlert("Coming soon", "The unlike option is comming soon", "OK");
+	//[RelayCommand]
+	//private async Task UnlikeVideo()
+	//	=> await PageService.DisplayAlert("Coming soon", "The unlike option is comming soon", "OK");
 
 	[RelayCommand]
 	private async Task ShareVideo()
 	{
-		var textToShare = $"Hey, I found this amazing video. Check it out: https://www.youtube.com/watch?v{TheVideo.Id}";
+		var textToShare = $"Hey, I found this amazing video. Check it out: https://www.youtube.com/watch?v={TheVideo.Id}";
 
 		await Share.RequestAsync(new ShareTextRequest
 		{
@@ -151,9 +151,9 @@ public partial class VideoDetailsPageViewModel : AppViewModelBase
 		}
 	}
 
-	[RelayCommand]
-	private async Task SubscribeChannel()
-		=> await PageService.DisplayAlert("Coming Soon", "The subscribe to channel option is coming soon", "OK");
+	//[RelayCommand]
+	//private async Task SubscribeChannel()
+	//	=> await PageService.DisplayAlert("Coming Soon", "The subscribe to channel option is coming soon", "OK");
 
 	[RelayCommand]
 	private async Task NavigateToVideoDetailsPage(string videoId)

@@ -24,7 +24,7 @@
 	<baseViews:BaseView.PageContent>
 
 		<Grid
-			RowDefinitions="160, Auto, Auto, Auto, Auto, Auto, *, 56"
+			RowDefinitions="Auto, Auto, Auto, Auto, Auto, *, 56"
 			RowSpacing="12"
 			Margin="16,0"
 			IsVisible="{Binding DataLoaded, Mode=OneWay}"
@@ -95,7 +95,7 @@
 						ShowsPlaybackControls="True"
 						AutoPlay="False"
 						Source="{Binding VideoSource, Mode=OneWay}"/>
-
+					
 				</Grid>
 			</Frame>
 
@@ -142,7 +142,7 @@
 				</HorizontalStackLayout>
 
 				<!-- Dislike -->
-				<HorizontalStackLayout
+				<!--<HorizontalStackLayout
 					Spacing="6"
 					VerticalOptions="Center">
 
@@ -160,7 +160,7 @@
 					Style="{StaticResource RegularLightText14}"
 					Text="Unlike"/>
 
-				</HorizontalStackLayout>
+				</HorizontalStackLayout>-->
 
 				<!-- Share -->
 				<HorizontalStackLayout
@@ -262,7 +262,7 @@
 					Text="{Binding TheChannel.SubscribersCount, Mode=OneWay}"/>
 
 				<!-- Subscribe Button -->
-				<Button
+				<!--<Button
 					Grid.Row="0"
 					Grid.RowSpan="2"
 					Grid.Column="2"
@@ -274,13 +274,13 @@
 					FontSize="12"
 					FontFamily="MediumFont"
 					Background="#FF0000"
-					Command="{Binding SubscribeChannelCommand, Mode=OneWay}"/>
+					Command="{Binding SubscribeChannelCommand, Mode=OneWay}"/>-->
 			</Grid>
 
 			<!-- Similar Videos -->
 			<CollectionView
 				x:Name="SimilarVideos"
-				Grid.Row="5"
+				Grid.Row="4"
 				Opacity="0"
 				IsVisible="{Binding SimilarVideos, Mode=OneWay, Converter={StaticResource cvtVisibleOnItemCount}}"
 				HeightRequest="140"
@@ -304,7 +304,7 @@
 			</CollectionView>
 
 			<!-- Tags -->
-			<CollectionView
+			<!--<CollectionView
 				x:Name="TagsView"
 				Grid.Row="4"
 				Opacity="0"
@@ -336,11 +336,11 @@
 						</Border>
 					</DataTemplate>
 				</CollectionView.ItemTemplate>
-			</CollectionView>
+			</CollectionView>-->
 
 			<!-- Description -->
 			<ScrollView
-				Grid.Row="6"
+				Grid.Row="5"
 				x:Name="DescriptionView"
 				Opacity="0">
 				<Label
@@ -353,7 +353,7 @@
 			<!-- Comments Button -->
 			<Button
 				x:Name="CommentsButton"
-				Grid.Row="7"
+				Grid.Row="6"
 				Opacity="0"
 				Padding="0"
 				Margin="0,0,0,16"
@@ -372,7 +372,7 @@
 			<!-- Progress Bar -->
 			<ContentView
 				IsVisible="{Binding IsDownloading, Mode=OneWay}"
-				Grid.Row="7"
+				Grid.Row="6"
 				VerticalOptions="Fill"
 				HorizontalOptions="Fill"
 				BackgroundColor="{StaticResource PageBackgroundColor}"
@@ -402,7 +402,7 @@
 				Grid.RowSpan="12"
 				HeaderText="{Binding TheVideo.CommentsCount, Mode=OneWay, StringFormat='COMMENTS ({0})'}"
 				HeaderStyle="{StaticResource PageHeaderTextStyle}"
-				SheetHeight="600"
+				SheetHeight="470"
 				Theme="Dark">
 				<botshtcontrols:BottomSheet.BottomSheetContent>
 

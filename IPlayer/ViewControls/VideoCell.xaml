@@ -37,7 +37,7 @@
 					HorizontalOptions="Fill"
 					VerticalOptions="Fill"
 					Aspect="AspectFill"
-					HeightRequest="240">
+					HeightRequest="260">
 					<Image.Source>
 						<UriImageSource
 							Uri="{Binding Snippet.Thumbnails.High.Url, Mode=OneWay}"
@@ -87,19 +87,19 @@
 					</Image>
 				</Border>
 
-				<!-- Channel name -->
+				<!-- Video title-->
 				<Label
-					Style="{StaticResource MediumLightText18}"
+					Style="{StaticResource MediumLightText14}"
 					Grid.Row="0"
 					Grid.Column="1"
-					Text="{Binding Snippet.ChannelTitle, Mode=OneWay}"/>
-
-				<!-- Video title-->
+					Text="{Binding Snippet.Title, Mode=OneWay}"/>
+				
+				<!-- Channel name -->
 				<Label
 					Style="{StaticResource RegularLightText14}"
 					Grid.Row="1"
 					Grid.Column="1"
-					Text="{Binding Snippet.Title, Mode=OneWay}"/>
+					Text="{Binding Snippet.ChannelTitle, Mode=OneWay}"/>
 
 				<!-- Next arrow-->
 				<Image

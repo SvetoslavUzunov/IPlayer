@@ -8,7 +8,7 @@ public static class Constants
 	public const string ApiServiceURL = @"https://youtube.googleapis.com/youtube/v3/";
 	public const string ApiKey = @"AIzaSyD10hggq6-GjzEz-jNt-myCRFXtzKOMDbs";
 
-	public const string DefaultSearchTerm = "Morandi";
+	public const string DefaultSearchTerm = "YouTube";
 	public const string DefaultLoadingText = "Hold on, we are loading!";
 
 	public const string NoInternetConnectionMessage = "Slow or no internet connection!";
