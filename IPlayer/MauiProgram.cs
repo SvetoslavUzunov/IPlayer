@@ -32,13 +32,16 @@ public static class MauiProgram
 					activity.Window.ClearFlags(Android.Views.WindowManagerFlags.TranslucentStatus);
 					activity.Window.SetStatusBarColor(Android.Graphics.Color.Transparent);
 				}
+#endif
 			}).ConfigureMauiHandlers(handlers =>
 			{
+#if ANDROID || IOS || MACCATALYST
 				handlers.AddCompatibilityRenderer(
 					typeof(Xamarin.CommunityToolkit.UI.Views.MediaElement),
 					typeof(Xamarin.CommunityToolkit.UI.Views.MediaElementRenderer));
 #endif
 			});
+
 		RegisterAppServices(builder.Services);
 
 		return builder.Build();

@@ -49,7 +49,7 @@ public partial class VideosDetailsPage : BaseView<VideoDetailsPageViewModel>
 			{ 0.8, 1, new Animation(v => CommentsButton.Opacity = v, 0, 1, Easing.CubicIn) } // Comments Button Animation
 		};
 
-		parentAnimation.Commit(this, "TransitionAnimation", 16, Constants.ExtraLongDuration, null,
+		parentAnimation.Commit(this, "TransitionAnimation", rate: 16, Constants.ExtraLongDuration, null,
 			(v, c) =>
 			{
 				// Action to perform on completion

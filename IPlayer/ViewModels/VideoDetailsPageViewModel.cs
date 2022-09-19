@@ -161,16 +161,16 @@ public partial class VideoDetailsPageViewModel : AppViewModelBase
 	private async Task GetVideoURL()
 	{
 		await Task.Run(async () =>
-			{
-				var youtube = new YoutubeClient();
+		{
+			var youtube = new YoutubeClient();
 
-				var stramManifest = await youtube.Videos.Streams.GetManifestAsync($"{YouTubeURL}{TheVideo.Id}");
+			var stramManifest = await youtube.Videos.Streams.GetManifestAsync($"{YouTubeURL}{TheVideo.Id}");
 
-				streamInfo = stramManifest.GetMuxedStreams();
+			streamInfo = stramManifest.GetMuxedStreams();
 
-				var videoPlayerStream = streamInfo.First(video => video.VideoQuality.Label is "240p" or "360p" or "480p");
+			var videoPlayerStream = streamInfo.First(video => video.VideoQuality.Label is "240p" or "360p" or "480p");
 
-				VideoSource = videoPlayerStream.Url;
-			});
+			VideoSource = videoPlayerStream.Url;
+		});
 	}
 }
