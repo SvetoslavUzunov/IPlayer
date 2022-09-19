@@ -95,7 +95,7 @@
 						ShowsPlaybackControls="True"
 						AutoPlay="False"
 						Source="{Binding VideoSource, Mode=OneWay}"/>
-					
+
 				</Grid>
 			</Frame>
 
@@ -402,7 +402,7 @@
 				Grid.RowSpan="12"
 				HeaderText="{Binding TheVideo.CommentsCount, Mode=OneWay, StringFormat='COMMENTS ({0})'}"
 				HeaderStyle="{StaticResource PageHeaderTextStyle}"
-				SheetHeight="470"
+				SheetHeight="480"
 				Theme="Dark">
 				<botshtcontrols:BottomSheet.BottomSheetContent>
 

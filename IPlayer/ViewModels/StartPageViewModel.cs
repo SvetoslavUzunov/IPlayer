@@ -25,7 +25,6 @@ public partial class StartPageViewModel : AppViewModelBase
 	public StartPageViewModel(IYoutubeService apiService) : base(apiService)
 		=> this.Title = ApplicationName;
 
-
 	public override async void OnNavigatedTo(object parameters)
 		=> await SearchAsync();
 

@@ -107,7 +107,7 @@ public partial class VideoDetailsPageViewModel : AppViewModelBase
 	[RelayCommand]
 	private async Task ShareVideo()
 	{
-		var textToShare = $"Hey, I found this amazing video. Check it out: https://www.youtube.com/watch?v={TheVideo.Id}";
+		var textToShare = $"{ShareVideoMessage}{TheVideo.Id}";
 
 		await Share.RequestAsync(new ShareTextRequest
 		{
@@ -131,8 +131,7 @@ public partial class VideoDetailsPageViewModel : AppViewModelBase
 
 			var urlToDownload = streamInfo.
 				OrderByDescending(video => video.VideoResolution.Area)
-				.First()
-				.Url;
+				.First().Url;
 
 			var downloadedFilePath = await downloadFileService.
 				DownloadFileAsync(urlToDownload, TheVideo.Snippet.Title.
@@ -161,14 +160,17 @@ public partial class VideoDetailsPageViewModel : AppViewModelBase
 
 	private async Task GetVideoURL()
 	{
-		var youtube = new YoutubeClient();
+		await Task.Run(async () =>
+			{
+				var youtube = new YoutubeClient();
 
-		var stramManifest = await youtube.Videos.Streams.GetManifestAsync($"https://youtube.com/watch?v={TheVideo.Id}");
+				var stramManifest = await youtube.Videos.Streams.GetManifestAsync($"{YouTubeURL}{TheVideo.Id}");
 
-		streamInfo = stramManifest.GetMuxedStreams();
+				streamInfo = stramManifest.GetMuxedStreams();
 
-		var videoPlayerStream = streamInfo.First(video => video.VideoQuality.Label is "240p" or "360p" or "480p");
+				var videoPlayerStream = streamInfo.First(video => video.VideoQuality.Label is "240p" or "360p" or "480p");
 
-		VideoSource = videoPlayerStream.Url;
+				VideoSource = videoPlayerStream.Url;
+			});
 	}
 }

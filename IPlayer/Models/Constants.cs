@@ -6,11 +6,13 @@ public static class Constants
 	public const string EmailAddress = "videoPlay@gmail.com";
 	public const string ApplicationId = "SU.IPlayer.App";
 	public const string ApiServiceURL = @"https://youtube.googleapis.com/youtube/v3/";
-	public const string ApiKey = @"YOUR OWN API KEY";
+	public const string ApiKey = @"PASTE HERE YOUR OWN API KEY";
 
-	public const string DefaultSearchTerm = "YouTube";
+	public const string DefaultSearchTerm = "Остава - Шоколад";
 	public const string DefaultLoadingText = "Hold on, we are loading!";
 
+	public const string YouTubeURL = "https://www.youtube.com/watch?v=";
+	public const string ShareVideoMessage = $"Hey, I found this amazing video. Check it out: {YouTubeURL}";
 	public const string NoInternetConnectionMessage = "Slow or no internet connection!";
 
 	public static uint MicroDuration { get; set; } = 100;

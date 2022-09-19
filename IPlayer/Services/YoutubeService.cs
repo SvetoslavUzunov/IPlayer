@@ -9,9 +9,7 @@ namespace IPlayer.Services;
 public class YoutubeService : RestServiceBase, IYoutubeService
 {
 	public YoutubeService(IBarrel barrel, IConnectivity connectivity) : base(barrel, connectivity)
-	{
-		SetBaseURL(Constants.ApiServiceURL);
-	}
+		=> SetBaseURL(Constants.ApiServiceURL);
 
 	public async Task<VideoSearchResult> SearchVideosAsync(string searchQuery, string nextPageToken = "")
 	{
