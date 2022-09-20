@@ -51,8 +51,13 @@ public partial class StartPageViewModel : AppViewModelBase
 		catch (Exception ex)
 		{
 			this.IsErrorState = true;
-			this.ErrorMessage = ex.Message;
 			this.ErrorImage = "error.png";
+			this.ErrorMessage = PrivateVideoMessage;
+
+			if (!ex.Message.Contains(ForbiddenExceptionCode))
+			{
+				this.ErrorMessage = ex.Message;
+			}
 		}
 		finally
 		{
@@ -88,7 +93,7 @@ public partial class StartPageViewModel : AppViewModelBase
 		}
 
 		IsLoadingMore = true;
-		await Task.Delay(1000);
+		await Task.Delay(LoadingNextVideosTime);
 		await GetYouTubeVideosAsync();
 		IsLoadingMore = false;
 	}

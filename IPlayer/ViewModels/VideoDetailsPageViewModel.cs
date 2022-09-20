@@ -91,8 +91,13 @@ public partial class VideoDetailsPageViewModel : AppViewModelBase
 		catch (Exception ex)
 		{
 			this.IsErrorState = true;
-			this.ErrorMessage = ex.Message;
 			this.ErrorImage = "error.png";
+			this.ErrorMessage = PrivateVideoMessage;
+
+			if (!ex.Message.Contains(ForbiddenExceptionCode))
+			{
+				this.ErrorMessage = ex.Message;
+			}
 		}
 		finally
 		{
@@ -135,7 +140,7 @@ public partial class VideoDetailsPageViewModel : AppViewModelBase
 
 			var downloadedFilePath = await downloadFileService.
 				DownloadFileAsync(urlToDownload, TheVideo.Snippet.Title.
-					CleanCacheKey() + ".mp4", progressIndicator, cancellationTokenSource.Token);
+					CleanCacheKey() + DownloadVideoExtension, progressIndicator, cancellationTokenSource.Token);
 
 			await Share.RequestAsync(new ShareFileRequest
 			{
