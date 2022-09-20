@@ -96,10 +96,13 @@ public partial class StartPageViewModel : AppViewModelBase
 	[RelayCommand]
 	private async Task SearchVideos(string searchQuery)
 	{
-		nextToken = string.Empty;
-		searchTerm = searchQuery.Trim();
+		if (searchQuery is not null && searchQuery != string.Empty)
+		{
+			nextToken = string.Empty;
+			searchTerm = searchQuery.Trim();
 
-		await SearchAsync();
+			await SearchAsync();
+		}
 	}
 
 	[RelayCommand]
