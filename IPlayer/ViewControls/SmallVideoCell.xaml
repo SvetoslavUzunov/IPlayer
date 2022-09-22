@@ -6,7 +6,7 @@
 	x:DataType="models:YoutubeVideo"
 	xmlns:viewModels="clr-namespace:IPlayer.ViewModels"
 	x:Class="IPlayer.ViewControls.SmallVideoCell">
-	
+
 	<Border
 		BackgroundColor="{StaticResource DarkColor}"
 		StrokeShape="RoundRectangle 8"
@@ -42,6 +42,12 @@
                             Uri="{Binding Snippet.Thumbnails.Medium.Url, Mode=OneWay}"
                             CacheValidity="1:00:00.0" />
 					</Image.Source>
+
+					<Image.GestureRecognizers>
+						<TapGestureRecognizer
+							Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:VideoDetailsPageViewModel}},Path=NavigateToVideoDetailsPageCommand, Mode=OneWay}"
+							CommandParameter="{Binding Id.VideoId}"/>
+					</Image.GestureRecognizers>
 				</Image>
 			</Frame>
 

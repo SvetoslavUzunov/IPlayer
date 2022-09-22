@@ -134,8 +134,8 @@ public partial class VideoDetailsPageViewModel : AppViewModelBase
 		{
 			IsDownloading = true;
 
-			var urlToDownload = streamInfo.
-				OrderByDescending(video => video.VideoResolution.Area)
+			var urlToDownload = streamInfo
+				.OrderByDescending(video => video.VideoResolution.Area)
 				.First().Url;
 
 			var downloadedFilePath = await downloadFileService.

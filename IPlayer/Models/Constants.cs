@@ -6,7 +6,8 @@ public static class Constants
 	public const string EmailAddress = "videoPlay@gmail.com";
 	public const string ApplicationId = "SU.IPlayer.App";
 	public const string ApiServiceURL = @"https://youtube.googleapis.com/youtube/v3/";
-	public const string ApiKey = @"HERE PASTE YOUR OWN API KEY";
+	public const string YouTubeURL = "https://www.youtube.com/watch?v=";
+	public const string ApiKey = @"HERE PROVIDE YOUR OWN API KEY";
 
 	public const string DefaultSearchTerm = "YouTube";
 	public const string DefaultLoadingText = "Hold on, we are loading!";
@@ -14,7 +15,6 @@ public static class Constants
 	public const string ForbiddenExceptionCode = "403";
 	public const int LoadingNextVideosTime = 1000;
 
-	public const string YouTubeURL = "https://www.youtube.com/watch?v=";
 	public const string ShareVideoMessage = $"Hey, I found this amazing video. Check it out: {YouTubeURL}";
 
 	public const string NoInternetConnectionMessage = "Slow or no internet connection!";

@@ -23,6 +23,7 @@
 			RowSpacing="1"
 			RowDefinitions="*,Auto">
 
+
 			<!-- Thumbnail -->
 			<Frame
 				Grid.Row="0"
@@ -43,6 +44,12 @@
 							Uri="{Binding Snippet.Thumbnails.High.Url, Mode=OneWay}"
 							CacheValidity="1:00:00.0"/>
 					</Image.Source>
+
+					<Image.GestureRecognizers>
+						<TapGestureRecognizer
+							Command="{Binding Path=NavigateToVideoDetailsPageCommand,Source={RelativeSource AncestorType={x:Type viewModels:StartPageViewModel}},Mode=OneWay}"
+							CommandParameter="{Binding Id.VideoId}"/>
+					</Image.GestureRecognizers>
 				</Image>
 			</Frame>
 
@@ -83,7 +90,7 @@
 								Uri="{Binding Snippet.ChannelImageURL, Mode=OneWay}"
 								CacheValidity="1:00:00.0"/>
 						</Image.Source>
-					
+
 					</Image>
 				</Border>
 
@@ -93,7 +100,7 @@
 					Grid.Row="0"
 					Grid.Column="1"
 					Text="{Binding Snippet.Title, Mode=OneWay}"/>
-				
+
 				<!-- Channel name -->
 				<Label
 					Style="{StaticResource RegularLightText14}"
