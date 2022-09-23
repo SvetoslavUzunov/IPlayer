@@ -23,7 +23,6 @@
 			RowSpacing="1"
 			RowDefinitions="*,Auto">
 
-
 			<!-- Thumbnail -->
 			<Frame
 				Grid.Row="0"

@@ -7,7 +7,7 @@ public static class Constants
 	public const string ApplicationId = "SU.IPlayer.App";
 	public const string ApiServiceURL = @"https://youtube.googleapis.com/youtube/v3/";
 	public const string YouTubeURL = "https://www.youtube.com/watch?v=";
-	public const string ApiKey = @"HERE PROVIDE YOUR OWN API KEY";
+	public const string ApiKey = @"PASTE HERE YOUR OWN API KEY";
 
 	public const string DefaultSearchTerm = "YouTube";
 	public const string DefaultLoadingText = "Hold on, we are loading!";

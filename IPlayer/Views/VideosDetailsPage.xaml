@@ -25,7 +25,7 @@
 
 		<Grid
 			RowDefinitions="Auto, Auto, Auto, Auto, Auto, *, 56"
-			RowSpacing="12"
+			RowSpacing="10"
 			Margin="16,0"
 			IsVisible="{Binding DataLoaded, Mode=OneWay}"
 			IgnoreSafeArea="True">
@@ -108,7 +108,7 @@
 				Opacity="0">
 
 				<Label
-					Style="{StaticResource MediumLightText20}"
+					Style="{StaticResource MediumLightText18}"
 					Text="{Binding TheVideo.Snippet.Title, Mode=OneWay}"/>
 
 				<Label
@@ -123,7 +123,7 @@
 				HorizontalOptions="Fill"
 				Opacity="0"
 				Margin="0"
-				Spacing="20">
+				Spacing="80">
 
 				<!-- Likes -->
 				<HorizontalStackLayout
@@ -136,7 +136,7 @@
 					HeightRequest="16"/>
 
 					<Label
-					Style="{StaticResource RegularLightText14}"
+					Style="{StaticResource RegularLightText16}"
 					Text="{Binding TheVideo.LikesCount, Mode=OneWay}"/>
 
 				</HorizontalStackLayout>
@@ -177,7 +177,7 @@
 					HeightRequest="16"/>
 
 					<Label
-					Style="{StaticResource RegularLightText14}"
+					Style="{StaticResource RegularLightText16}"
 					Text="Share"/>
 
 				</HorizontalStackLayout>
@@ -197,7 +197,7 @@
 					HeightRequest="16"/>
 
 					<Label
-					Style="{StaticResource RegularLightText14}"
+					Style="{StaticResource RegularLightText16}"
 					Text="Download"/>
 
 				</HorizontalStackLayout>
