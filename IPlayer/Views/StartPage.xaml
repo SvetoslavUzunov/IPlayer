@@ -15,22 +15,22 @@
 
 	<baseViews:BaseView.PageContent>
 
-		<CollectionView
+			<CollectionView
             x:Name="listVideos"
             Margin="16,4,16,0"
             ItemsSource="{Binding YoutubeVideos, Mode=OneWay}"
-			RemainingItemsThreshold="1"
+			RemainingItemsThreshold="4"
 			RemainingItemsThresholdReachedCommand="{Binding LoadMoreVideosCommand, Mode=OneWay}">
 
-			<CollectionView.ItemsLayout>
-				<LinearItemsLayout
+				<CollectionView.ItemsLayout>
+					<LinearItemsLayout
                     Orientation="Vertical"
                     ItemSpacing="12" />
-			</CollectionView.ItemsLayout>
+				</CollectionView.ItemsLayout>
 
-			<CollectionView.Header>
-				<ContentView>
-					<Border
+				<CollectionView.Header>
+					<ContentView>
+						<Border
 						Padding="12,4"
 						BackgroundColor="{StaticResource DarkColor}"
 						Stroke="Transparent"
@@ -39,28 +39,28 @@
 						HeightRequest="40"
 						StrokeShape="RoundRectangle 8">
 
-						<Grid
+							<Grid
 							HorizontalOptions="Fill"
 							VerticalOptions="Center"
 							ColumnDefinitions="*, Auto"
 							ColumnSpacing="16">
 
-							<Image
+								<Image
 								WidthRequest="18"
 								HeightRequest="18"
 								Source="icnsearch.png"
 								Grid.Column="1"
 								VerticalOptions="Center">
 
-								<Image.GestureRecognizers>
-									<TapGestureRecognizer
+									<Image.GestureRecognizers>
+										<TapGestureRecognizer
 										Command="{Binding SearchVideosCommand}"
 										CommandParameter="{Binding Path=Text, Source={x:Reference TextSearchQuery}, Mode=OneWay}"/>
-								</Image.GestureRecognizers>
+									</Image.GestureRecognizers>
 
-							</Image>
+								</Image>
 
-							<Entry
+								<Entry
 								x:Name="TextSearchQuery"
 								Placeholder="Search..."
 								PlaceholderColor="{StaticResource LightColor}"
@@ -74,36 +74,36 @@
 								VerticalTextAlignment="Center"
 								Completed="TextSearchQuery_Completed"/>
 
-						</Grid>
+							</Grid>
 
-					</Border>
+						</Border>
 
-				</ContentView>
-			</CollectionView.Header>
+					</ContentView>
+				</CollectionView.Header>
 
-			<CollectionView.ItemTemplate>
-				<DataTemplate
+				<CollectionView.ItemTemplate>
+					<DataTemplate
 					x:DataType="models:YoutubeVideo">
-					<controls:VideoCell 
+						<controls:VideoCell 
 						HorizontalOptions="Fill"/>
 
-				</DataTemplate>
-			</CollectionView.ItemTemplate>
+					</DataTemplate>
+				</CollectionView.ItemTemplate>
 
-			<CollectionView.Footer>
-				<ContentView
+				<CollectionView.Footer>
+					<ContentView
 					HeightRequest="56">
-					<ActivityIndicator
+						<ActivityIndicator
 						IsRunning="{Binding IsLoadingMore, Mode=OneWay}"
 						WidthRequest="44"
 						HeightRequest="44"
 						HorizontalOptions="Center"
 						Color="White"
 						Scale="{OnPlatform iOS=1.3, Android=1.0}"/>
-				</ContentView>
-			</CollectionView.Footer>
+					</ContentView>
+				</CollectionView.Footer>
 
-		</CollectionView>
+			</CollectionView>
 
 	</baseViews:BaseView.PageContent>
 

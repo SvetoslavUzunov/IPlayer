@@ -54,7 +54,7 @@ public partial class VideoDetailsPageViewModel : AppViewModelBase
 
 		SetDataLoadingIndicators(true);
 
-		this.LoadingText = DefaultLoadingText;
+		//this.LoadingText = DefaultLoadingText;
 
 		try
 		{

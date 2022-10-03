@@ -60,13 +60,13 @@
 					</Image>
 
 					<!--Play Button -->
-					<ImageButton
+					<!--<ImageButton
 						Source="imgplay.png"
 						HeightRequest="64"
 						WidthRequest="64"
 						VerticalOptions="Center"
 						HorizontalOptions="Center"
-						Clicked="VideoPlayerButton_Clicked"/>
+						Clicked="VideoPlayerButton_Clicked"/>-->
 
 					<!-- Duration -->
 					<Border

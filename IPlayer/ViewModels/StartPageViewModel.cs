@@ -32,7 +32,7 @@ public partial class StartPageViewModel : AppViewModelBase
 	{
 		SetDataLoadingIndicators(true);
 
-		LoadingText = DefaultLoadingText;
+		//LoadingText = DefaultLoadingText;
 
 		YoutubeVideos = new();
 

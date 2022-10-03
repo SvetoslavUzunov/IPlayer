@@ -9,6 +9,8 @@ public partial class VideosDetailsPage : BaseView<VideoDetailsPageViewModel>
 	public VideosDetailsPage(object initParams) : base(initParams)
 	{
 		InitializeComponent();
+		VideoPlayer.IsVisible = true;
+		VideoPlayer.Play();
 
 		this.ViewModelInitialized += (s, e) =>
 		{
